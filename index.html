@@ -68,6 +68,38 @@
       background-color: var(--accent-2); /* resalta opción activa/hover */
       color: #fff;
     }
+    @media (max-width: 600px) {
+  .nav-inner {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .menu {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 6px;
+  }
+
+  .chip {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .section {
+    padding: 32px 14px;
+  }
+}
+
 
   </style>
 </head>
@@ -512,3 +544,4 @@ const METAS = [
   </script>
 </body>
 </html>
+
