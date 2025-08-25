@@ -1,2 +1,8 @@
-# angel-rondon.github.io
-Portafolio personal: certificados, proyectos y metas en ciberseguridad.
+# 🌐 Portafolio de Ángel Rondon
+
+Repositorio de mi portafolio personal con:
+- Certificados clasificados y filtrables
+- Proyectos hands-on
+- Metas profesionales
+
+🔗 [Visitar portafolio online](https://angel-rondon.github.io)
