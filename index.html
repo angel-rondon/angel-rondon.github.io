@@ -2,10 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Ángel Rondon · Portafolio</title>
   <meta name="description" content="Portafolio offline con Acerca de, Certificados, Proyectos y Metas." />
   <style>
+    html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
     :root{
       --bg:#0b1020; --panel:#0f1730; --muted:#8aa4ff; --text:#e8ecff; --accent:#6bffff; --accent-2:#38bdf8;
       --card:#0e142b; --border:#202a4a; --ok:#22c55e; --warn:#f59e0b;
@@ -99,7 +103,16 @@
     padding: 32px 14px;
   }
 }
-
+@media (max-width: 420px){
+  .nav-inner{ padding:8px 10px; }
+  .menu{ gap:8px; padding-bottom:4px; }
+  .chip{ font-size:13px; padding:6px 10px; }
+  h1{ font-size:20px; line-height:1.2; }
+  h2{ font-size:17px; }
+  .avatar{ width:72px; height:72px; }
+  .btn{ padding:8px 12px; font-size:14px; }
+  .section{ padding:26px 12px; }
+}
 
   </style>
 </head>
@@ -544,4 +557,5 @@ const METAS = [
   </script>
 </body>
 </html>
+
 
