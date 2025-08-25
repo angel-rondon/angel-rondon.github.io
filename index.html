@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ángel Rondon · Portafolio</title>
+  <meta name="description" content="Portafolio offline con Acerca de, Certificados, Proyectos y Metas." />
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#0f1730; --muted:#8aa4ff; --text:#e8ecff; --accent:#6bffff; --accent-2:#38bdf8;
+      --card:#0e142b; --border:#202a4a; --ok:#22c55e; --warn:#f59e0b;
+      --radius:18px; --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fd; --panel:#ffffff; --card:#ffffff; --text:#0e1220; --border:#e7e9f2; --muted:#475569; --accent:#0369a1; --accent-2:#2563eb; }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(1200px 800px at 100% -20%, rgba(107,255,255,.07), transparent), linear-gradient(180deg, var(--bg), #070a16 60%);color:var(--text);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji"}
+    a{color:var(--accent-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1080px;margin:auto;padding:20px}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(10,14,30,.7);backdrop-filter:saturate(140%) blur(12px);border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 20px}
+    .brand{font-weight:700;letter-spacing:.3px}
+    .menu{display:flex;gap:16px;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--border);padding:8px 12px;border-radius:999px}
+    .section{padding:48px 20px}
+    h1,h2{margin:0 0 14px}
+    h1{font-size:28px}
+    h2{font-size:22px}
+    .grid{display:grid;gap:16px}
+    @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .kicker{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));color:var(--text)}
+    .btn:hover{border-color:var(--accent-2)}
+    .pill{padding:.2rem .6rem;border-radius:999px;border:1px solid var(--border);font-size:12px}
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .avatar{width:96px;height:96px;border-radius:50%;object-fit:cover;border:2px solid var(--border);box-shadow:var(--shadow)}
+    @media(min-width:820px){.avatar{width:120px;height:120px}}
+    .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.06);color:var(--text);appearance:none}
+    select.search{cursor:pointer}
+    select.search:focus{outline:2px solid var(--accent-2)}
+    select.search option{background:var(--panel);color:var(--text)}
+    .timeline{position:relative;padding-left:22px}
+    .timeline:before{content:"";position:absolute;left:9px;top:3px;bottom:3px;width:2px;background:var(--border)}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 3px rgba(107,255,255,.2);position:absolute;left:5px;margin-top:8px}
+    .footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);text-align:center}
+    .badge-ok{border-color:var(--ok);color:var(--ok)}
+    .badge-warn{border-color:var(--warn);color:var(--warn)}
+    .small{font-size:13px}
+    .sticky-actions{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px}
+    /* Ajustes de select */
+    select.search {
+      background-color: var(--card);  /* más oscuro en la caja principal */
+      color: var(--text);
+    }
+    
+    select.search option {
+      background-color: var(--text);  /* lista desplegable clara */
+      color: var(--bg);               /* texto oscuro dentro de la lista */
+    }
+    
+    select.search option:checked,
+    select.search option:hover {
+      background-color: var(--accent-2); /* resalta opción activa/hover */
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner container">
+      <div class="brand">Ángel Rondon</div>
+      <div class="menu">
+        <a class="chip" href="#acerca">Acerca de</a>
+        <a class="chip" href="#certificados">Certificados</a>
+        <a class="chip" href="#proyectos">Proyectos</a>
+        <a class="chip" href="#metas">Metas</a>
+        <a class="chip" href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="section container">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="row" style="justify-content:space-between;align-items:center">
+          <div>
+            <div class="kicker">Bienvenido</div>
+            <h1>SOC & Blue Team Trainee</h1>
+            <p>Estudiante de Ingeniería de Sistemas con enfoque en ciberseguridad defensiva. Aprendo construyendo, documento mi ruta y comparto lo útil. Esta es mi maqueta offline del portafolio.</p>
+            <div class="row">
+              <a class="btn" href="#certificados">Ver certificados</a>
+              <a class="btn" href="#proyectos">Explorar proyectos</a>
+            </div>
+          </div>
+          <img class="avatar" src="./assets/avatar-placeholder.jpeg" alt="Foto de Ángel Rondon" title="Reemplaza este archivo por tu foto: assets/avatar-placeholder.jpg"/>
+        </div>
+      </div>
+<div class="card">
+  <div class="kicker">Snapshot</div>
+  <ul>
+    <li><strong>Sistemas:</strong> Linux (admin/red/seguridad), Windows Server & AD, Redes TCP/IP, firewalls, VPN, ACLs, ZPF</li>
+    <li><strong>Programación:</strong> Python (scripts, automatización, análisis)</li>
+    <li><strong>Ciberseguridad:</strong> SOC (SIEM, IR, TI, análisis forense), Blue Team (defensa, hardening, detección), Pentesting web (OWASP Top 10)</li>
+    <li><strong>Gestión:</strong> Scrum, PMI, BPM con Bizagi, ISO 27001 & 31000</li>
+    <li><strong>Extra:</strong> Inglés técnico avanzado (MET), Ofimática (Excel)</li>
+    <li><strong>Creatividad:</strong> Edición audiovisual (After Effects, Premiere, Audition)</li>
+    <li><strong>Ubicación:</strong> Lima, Perú</li>
+  </ul>
+</div>
+
+    </div>
+  </header>
+
+  <section id="acerca" class="section container">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="kicker">Acerca de</div>
+        <h2>Quién soy</h2>
+        <p>Busco ser un profesional íntegro en seguridad de la información. Me gusta pensar con calma, practicar con intención y explicar con claridad. No vendo humo; documento progreso.</p>
+      </div>
+      <div class="card">
+        <div class="kicker">En una línea</div>
+        <p>“Lo difícil es posible. Lo imposible me toma más tiempo.”</p>
+        <div class="row"><span class="pill">Ética</span><span class="pill">Disciplina</span><span class="pill">Curiosidad</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificados" class="section container">
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <div class="kicker">Historial</div>
+        <h2>Certificados</h2>
+      </div>
+      <div class="row">
+        <input id="q" class="search" placeholder="Buscar por nombre, institución o año…" style="min-width:320px" />
+        <select id="filtroCat" class="search" style="width:220px">
+          <option value="">Todas las categorías</option>
+          <option>Ciberseguridad</option>
+          <option>Sistemas</option>
+          <option>Ofimática</option>
+        </select>
+        <select id="orden" class="search" style="width:260px">
+          <option value="desc">Del más actual al más antiguo</option>
+          <option value="asc">Del más antiguo al más actual</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="certList" class="grid cols-2" style="margin-top:16px"></div>
+    <p id="certEmpty" class="muted" style="display:none">Sin resultados. Ajusta tu búsqueda o filtros.</p>
+  </section>
+
+  <section id="proyectos" class="section container">
+    <div class="kicker">Hands-on</div>
+    <h2>Proyectos</h2>
+    <div id="projList" class="grid cols-2"></div>
+  </section>
+
+  <section id="metas" class="section container">
+    <div class="kicker">Roadmap</div>
+    <h2>Metas</h2>
+    <div id="goals" class="grid cols-3"></div>
+  </section>
+
+  <section id="contacto" class="section container">
+    <div class="grid cols-2">
+      <div class="card">
+        <div class="kicker">Contacto</div>
+        <h2>Conversemos</h2>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/angel-rondon-cyber/">linkedin.com/in/angel-rondon-cyber/</a><br>Credly: <a href="https://www.credly.com/users/angel-rondon-ortiz">credly.com/users/angel-rondon-ortiz</a><br>Email: <a href="mailto:rondon.ortiz@gmail.com">rondon.ortiz@gmail.com</a></p>
+      </div>
+      <div class="card">
+        <div class="kicker">Licencia</div>
+        <p class="small">© 2025 Ángel Rondon. Hecho con HTML+CSS+JS minimalista. Libre para reutilizar y mejorar.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container small">Última edición: 2025-08-25</footer>
+
+  <div class="sticky-actions">
+    <button class="btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Arriba</button>
+  </div>
+
+  <script>
+  // === Datos editables ===
+  const CERTIFICADOS = [
+  {fecha:'2016-07-01', institucion:'ICPNA', nombre:'Basic Program of English', categoria:'Idiomas',
+   url:'certs/2016_07 - ICPNA - Basic Program of English - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Nivel básico de inglés','Comprensión inicial de lectura y escritura']},
+
+  {fecha:'2017-11-22', institucion:'MET', nombre:'Michigan English Test', categoria:'Idiomas',
+   url:'certs/2017_11_22 - MET - Michigan English Test - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Certificación internacional','Competencia avanzada en inglés']},
+
+  {fecha:'2017-12-01', institucion:'ICPNA', nombre:'Intermediate Program of English', categoria:'Idiomas',
+   url:'certs/2017_12 - ICPNA - Intermediate Program of English - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Nivel intermedio de inglés']},
+
+  {fecha:'2019-03-01', institucion:'ICPNA', nombre:'Advanced Program of English', categoria:'Idiomas',
+   url:'certs/2019_03 - ICPNA - Advanced Program of English - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Nivel avanzado de inglés','Comunicación profesional']},
+
+  {fecha:'2022-11-09', institucion:'Universidad Continental', nombre:'Especialista en AutoCAD 2D', categoria:'Sistemas',
+   url:'certs/2022_11_09 - Universidad Continental - Especialista en Diseño Técnico Asistido por Computadora con AutoCAD 2D - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Diseño en 2D','Herramientas básicas CAD']},
+
+  {fecha:'2022-12-02', institucion:'Universidad Continental', nombre:'Especialista en AutoCAD 3D', categoria:'Sistemas',
+   url:'certs/2022_12_02 - Universidad Continental - Especialista en Diseño Técnico Asistido por Computadora con AutoCAD 3D - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Modelado 3D','Representación digital avanzada']},
+
+  {fecha:'2023-02-24', institucion:'SistemasUNI', nombre:'Linux Administración Servicios Intranet', categoria:'Sistemas',
+   url:'certs/2023_02_24 - SistemasUNI - Linux Administración Servicios Intranet - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Servicios básicos de red en Linux','Gestión de usuarios y permisos']},
+
+  {fecha:'2023-07-12', institucion:'Google Activate', nombre:'Digitaliza tu negocio con Google', categoria:'Programación & Data',
+   url:'certs/2023_07_12 - Google Activate - Digitaliza paso a paso tu negocio con herramientas de Google - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Uso de Google Workspace','Herramientas de productividad digital']},
+
+  {fecha:'2023-07-12', institucion:'Google Activate', nombre:'Introducción al Desarrollo Web I', categoria:'Programación & Data',
+   url:'certs/2023_07_12 - Google Activate - Introducción al Desarrollo Web I (40 h) - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['HTML & CSS básicos','Primeros pasos en diseño web']},
+
+  {fecha:'2023-07-13', institucion:'Google Activate', nombre:'Introducción al Desarrollo Web II', categoria:'Programación & Data',
+   url:'certs/2023_07_13 - Google Activate - Introducción al Desarrollo Web II (40 h) - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['JavaScript básico','Buenas prácticas de front-end']},
+
+  {fecha:'2023-08-29', institucion:'Universidad Continental', nombre:'Programación y Desarrollo con Python', categoria:'Programación & Data',
+   url:'certs/2023_08_29 - Universidad Continental - Especialista en Programación y Desarrollo con Python - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Sintaxis y estructuras','Automatización básica']},
+
+  {fecha:'2024-02-09', institucion:'Universidad Continental', nombre:'Desarrollo Web Profesional', categoria:'Programación & Data',
+   url:'certs/2024_02_09 - Universidad Continental - Especialista en Desarrollo Web Profesional - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Desarrollo full stack','Buenas prácticas de código']},
+
+  {fecha:'2024-11-05', institucion:'CTIC UNI', nombre:'Aplicaciones de Inteligencia Artificial', categoria:'Programación & Data',
+   url:'certs/2024_11_05 - CTIC UNI - Aplicaciones de Inteligencia Artificial para Universitarios - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Casos de uso de IA','Limitaciones prácticas']},
+
+  {fecha:'2024-11-10', institucion:'CTIC UNI', nombre:'Pentesting contra Aplicaciones Web', categoria:'Ciberseguridad',
+   url:'certs/2024_11_10 - CTIC UNI - Ciberseguridad Pentesting contra Aplicaciones Web - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['OWASP Top 10','BurpSuite básico']},
+
+  {fecha:'2024-11-23', institucion:'SistemasUNI', nombre:'Linux Seguridad en Redes y Firewall', categoria:'Sistemas',
+   url:'certs/2024_11_23 - SistemasUNI - Linux Administración Seguridad en Redes y Firewall - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['iptables','Buenas prácticas de hardening']},
+
+  {fecha:'2025-02-03', institucion:'CTIC UNI', nombre:'Ciberseguridad Cybersoc CICS', categoria:'Ciberseguridad',
+   url:'certs/2025_02_03 - CTIC UNI - Ciberseguridad Cybersoc CICS - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Operación SOC','Casos de uso defensivos']},
+
+  {fecha:'2025-02-08', institucion:'CTIC UNI', nombre:'Ciberseguridad Ethical Hacking CEH', categoria:'Ciberseguridad',
+   url:'certs/2025_02_08 - CTIC UNI - Ciberseguridad Ethical Hacking CEH - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Metodología CEH','Herramientas principales']},
+
+  {fecha:'2025-02-08', institucion:'SistemasUNI', nombre:'Especialista en Linux', categoria:'Sistemas',
+   url:'certs/2025_02_08 - SistemasUNI - Especialista en Linux - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Administración avanzada de Linux']},
+
+  {fecha:'2025-02-08', institucion:'SistemasUNI', nombre:'Linux Administración Básica', categoria:'Sistemas',
+   url:'certs/2025_02_08 - SistemasUNI - Linux Administración Básica - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Comandos básicos','Gestión de archivos']},
+
+  {fecha:'2025-02-25', institucion:'INICTEL UNI', nombre:'Ethical Hacker', categoria:'Ciberseguridad',
+   url:'certs/2025_02_25 - INICTEL UNI - Ethical Hacker - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Reconocimiento','Explotación básica']},
+
+  {fecha:'2025-03-04', institucion:'Cisco Networking Academy', nombre:'Ethical Hacker', categoria:'Ciberseguridad',
+   url:'certs/2025_03_04 - Cisco Networking Academy - Ethical Hacker - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Escaneo de redes','Pruebas de penetración básicas']},
+
+  {fecha:'2025-03-08', institucion:'SistemasUNI', nombre:'Windows Server Administración', categoria:'Sistemas',
+   url:'certs/2025_03_08 - SistemasUNI - Windows Server Administración - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['AD DS básico','Políticas GPO']},
+
+  {fecha:'2025-03-10', institucion:'CTIC UNI', nombre:'Machine Learning con Python', categoria:'Programación & Data',
+   url:'certs/2025_03_10 - CTIC UNI - Machine Learning con Python - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['Pandas/NumPy','Modelos básicos']},
+
+  {fecha:'2025-04-06', institucion:'SKILL', nombre:'Curso de Adobe After Effects 2025', categoria:'Audiovisuales',
+   url:'certs/2025_04_06 - SKILL - Curso de Adobe After Effects 2025 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-04-06', institucion:'SKILL', nombre:'Curso de Adobe Audition 2025', categoria:'Audiovisuales',
+   url:'certs/2025_04_06 - SKILL - Curso de Adobe Audition 2025 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-04-06', institucion:'SKILL', nombre:'Curso de Adobe Premiere Pro 2025', categoria:'Audiovisuales',
+   url:'certs/2025_04_06 - SKILL - Curso de Adobe Premiere Pro 2025 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-04-06', institucion:'SKILL', nombre:'Programa de Actualización en Edición Audiovisual', categoria:'Audiovisuales',
+   url:'certs/2025_04_06 - SKILL - Programa de Actualización en Edición Audiovisual - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-04-21', institucion:'INICTEL UNI', nombre:'Defensa de la Red', categoria:'Ciberseguridad',
+   url:'certs/2025_04_21 - INICTEL UNI - Defensa de la Red - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-05-05', institucion:'Cisco Networking Academy', nombre:'Defensa de la Red', categoria:'Ciberseguridad',
+   url:'certs/2025_05_05 - Cisco Networking Academy - Defensa de la Red - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-05-12', institucion:'CTIC UNI', nombre:'Gestión de Proyectos PMI 1', categoria:'Gestión & Normativas',
+   url:'certs/2025_05_12 - CTIC UNI - Fundamentos de Gestión de Proyectos bajo el Enfoque PMI 1 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-05-22', institucion:'CTIC UNI', nombre:'BPM con Bizagi', categoria:'Gestión & Normativas',
+   url:'certs/2025_05_22 - CTIC UNI - Business Process Management BPM con Software Bizagi - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-05-22', institucion:'INICTEL UNI', nombre:'Seguridad de Terminales', categoria:'Ciberseguridad',
+   url:'certs/2025_05_22 - INICTEL UNI - Seguridad de Terminales - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-05-26', institucion:'CTIC UNI', nombre:'Gestión de Proyectos PMI 2', categoria:'Gestión & Normativas',
+   url:'certs/2025_05_26 - CTIC UNI - Fundamentos de Gestión de Proyectos bajo el Enfoque PMI 2 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-06-03', institucion:'Cisco Networking Academy', nombre:'Seguridad de Puntos Finales', categoria:'Ciberseguridad',
+   url:'certs/2025_06_03 - Cisco Networking Academy - Seguridad de puntos finales - Rondon Ortiz, Angel Rodrigo.pdf',
+   notas:['EDR','Hardening']},
+
+  {fecha:'2025-06-10', institucion:'CTIC UNI', nombre:'Fundamentos de ISO 27001', categoria:'Gestión & Normativas',
+   url:'certs/2025_06_10 - CTIC UNI - Fundamentos de ISO 27001 Sistema de Gestión de Seguridad de la Información - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-06-14', institucion:'CTIC UNI', nombre:'Fundamentos de ISO 31000', categoria:'Gestión & Normativas',
+   url:'certs/2025_06_14 - CTIC UNI - Fundamentos de ISO 31000 Gestión del Riesgo - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-06-17', institucion:'CTIC UNI', nombre:'Fundamentos de Scrum', categoria:'Gestión & Normativas',
+   url:'certs/2025_06_17 - CTIC UNI - Fundamentos de Gestión de Proyectos bajo el Enfoque Scrum - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-07-10', institucion:'INICTEL UNI', nombre:'Administración de Amenazas Cibernéticas', categoria:'Ciberseguridad',
+   url:'certs/2025_07_10 - INICTEL UNI - Administración de Amenazas Cibernéticas - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-07-12', institucion:'SistemasUNI', nombre:'Windows Server Soporte y Configuración', categoria:'Sistemas',
+   url:'certs/2025_07_12 - SistemasUNI - Windows Server Soporte y Configuración - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-07-21', institucion:'CISCO', nombre:'Gestión de Amenazas Cibernéticas', categoria:'Ciberseguridad',
+   url:'certs/2025_07_21 - CISCO - Gestión de Amenazas Cibernéticas - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-07-27', institucion:'SistemasUNI', nombre:'Windows Server Web Sites y Exchange Server', categoria:'Sistemas',
+   url:'certs/2025_07_27 - SistemasUNI - Windows Server Web Sites y Exchange Server - Rondón Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-08-06', institucion:'SistemasUNI', nombre:'Excel Básico', categoria:'Ofimática',
+   url:'certs/2025_08_06 - SistemasUNI - Excel Básico - Rondón Ortiz, Angel Rodrigo.pdf'},
+
+  {fecha:'2025-08-15', institucion:'SistemasUNI', nombre:'Excel Intermedio', categoria:'Ofimática',
+   url:'certs/2025_08_15 - SistemasUNI - Excel Intermedio - Rondón Ortiz, Angel Rodrigo.pdf'}
+];
+
+
+  const PROYECTOS = [
+    {titulo:'Laboratorio SOC casero', fecha:'2025-06-30', etiquetas:['SIEM','Linux','Windows'], desc:'Montaje de entorno con logs de Ubuntu/Windows, correlación básica y casos de uso intro.'},
+    {titulo:'Hardening inicial Windows Server', fecha:'2025-07-28', etiquetas:['AD','GPO','Seguridad'], desc:'Checklist de endurecimiento, políticas locales y monitoreo de eventos críticos.'}
+  ];
+
+const METAS = [
+  {
+    estado:'En curso',
+    meta:'Obtener práctica preprofesional en SOC',
+    cuando:'Q4-2025',
+    mejoras:'Experiencia comprobable en monitoreo y respuesta de incidentes'
+  },
+  {
+    estado:'En curso',
+    meta:'Ser especialista en Excel',
+    cuando:'Q4-2025',
+    mejoras:'Capacidad de análisis de datos y generación de reportes útiles para SOC'
+  },
+  {
+    estado:'Planificada',
+    meta:'Publicar 3 posts técnicos/mes',
+    cuando:'Constante',
+    mejoras:'Visibilidad profesional y posicionamiento como perfil en crecimiento'
+  },
+  {
+    estado:'Planificada',
+    meta:'Preparar y rendir CompTIA Security+ (o equivalente)',
+    cuando:'2026',
+    mejoras:'Validación internacional de competencias en ciberseguridad'
+  },
+  {
+    estado:'Planificada',
+    meta:'Completar laboratorio SOC con SIEM open source',
+    cuando:'2025',
+    mejoras:'Práctica directa con Wazuh/Splunk y detección de incidentes simulados'
+  },
+  {
+    estado:'Planificada',
+    meta:'Documentar 5 casos de respuesta a incidentes simulados',
+    cuando:'2025',
+    mejoras:'Portafolio demostrable de habilidades en análisis y respuesta a incidentes'
+  }
+];
+
+
+  // === Render ===
+    const elList = document.getElementById('certList');
+    const elEmpty = document.getElementById('certEmpty');
+    const elQ = document.getElementById('q');
+    const elCat = document.getElementById('filtroCat');
+    const elOrden = document.getElementById('orden');
+
+
+  function renderCerts(){
+    const q = (elQ.value||'').toLowerCase();
+    const cat = elCat.value;
+    const order = (elOrden?.value) || 'desc';
+    function sinTildes(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+
+    const items = CERTIFICADOS
+      .filter(c=>{
+        const hayCat = !cat || c.categoria===cat;
+        const texto = sinTildes((c.nombre+" "+c.institucion+" "+c.fecha+" "+c.categoria).toLowerCase());
+        return hayCat && texto.includes(sinTildes(q));
+      })
+      .sort((a,b)=> order==='desc' ? b.fecha.localeCompare(a.fecha) : a.fecha.localeCompare(b.fecha));
+
+
+    elList.innerHTML = '';
+    elEmpty.style.display = items.length? 'none':'block';
+
+    items.forEach(c=>{
+      const card = document.createElement('article');
+      const url = c.url ? encodeURI(c.url) : null;
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="row" style="justify-content:space-between">
+          <div>
+            <div class="kicker">${c.institucion} · ${c.categoria}</div>
+            <h3 style="margin:.2rem 0 0;font-size:18px">${c.nombre}</h3>
+            <div class="muted small">
+              ${fmtFecha(c.fecha)} · 
+              ${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer">Ver PDF</a>`
+                    : `<span class="muted">[Añadir PDF]</span>`}
+            </div>
+          </div>
+          <div class="row">
+            ${c.notas?.length? `<button class='btn small' data-action='toggle'>Detalles</button>`:''}
+            <div class="pill">${c.fecha}</div>
+          </div>
+        </div>
+        ${c.notas?.length? `<div class='detalles' style='display:none'><ul style="margin:.6rem 0 0 1rem">${c.notas.map(n=>`<li>${n}</li>`).join('')}</ul></div>`:''}
+      `;
+      // Toggle detalles
+      const tbtn = card.querySelector("button[data-action='toggle']");
+      if(tbtn){
+        tbtn.addEventListener('click', ()=>{
+          const d = card.querySelector('.detalles');
+          if(d){ d.style.display = d.style.display==='none' ? 'block' : 'none'; }
+        });
+      }
+      elList.appendChild(card);
+    });
+  }
+
+  function renderProyectos(){
+    const root = document.getElementById('projList');
+    root.innerHTML = '';
+    PROYECTOS.sort((a,b)=>b.fecha.localeCompare(a.fecha)).forEach(p=>{
+      const el = document.createElement('article');
+      el.className = 'card';
+      el.innerHTML = `
+        <div class="kicker">${p.etiquetas.join(' · ')}</div>
+        <h3 style="margin:.2rem 0 6px;font-size:18px">${p.titulo}</h3>
+        <div class="muted small">${fmtFecha(p.fecha)}</div>
+        <p>${p.desc}</p>
+      `;
+      root.appendChild(el);
+    });
+  }
+
+  function renderMetas(){
+    const root = document.getElementById('goals');
+    root.innerHTML = '';
+    METAS.forEach(g=>{
+      const el = document.createElement('article');
+      el.className = 'card';
+      const badgeClass = g.estado.includes('curso')? 'badge-ok' : g.estado==='Riesgo'? 'badge-warn':'';
+      el.innerHTML = `
+        <div class="row" style="justify-content:space-between">
+          <div class="kicker">${g.estado}</div>
+          <span class="pill ${badgeClass}">${g.cuando}</span>
+        </div>
+        <h3 style="margin:.2rem 0 6px;font-size:18px">${g.meta}</h3>
+        <p class="small muted">Mejoras: ${g.mejoras}</p>
+      `;
+      root.appendChild(el);
+    });
+  }
+
+  function fmtFecha(iso){
+    try{
+      const d = new Date(iso+'T00:00:00');
+      return d.toLocaleDateString('es-PE', {year:'numeric', month:'short', day:'2-digit'}).replaceAll('.','');
+    }catch{return iso}
+  }
+
+  elQ.addEventListener('input', renderCerts);
+  elCat.addEventListener('change', renderCerts);
+  elOrden.addEventListener('change', renderCerts);
+
+  renderCerts();
+  renderProyectos();
+  renderMetas();
+
+  // Exportar el HTML actual (útil para versionar la maqueta)
+  function exportHTML(){
+    const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+    const a = Object.assign(document.createElement('a'), {href:URL.createObjectURL(blob), download:'portafolio-angel-rondon.html'});
+    a.click(); URL.revokeObjectURL(a.href);
+  }
+  window.exportHTML = exportHTML;
+  </script>
+</body>
+</html>
