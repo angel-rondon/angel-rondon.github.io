@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Ángel Rondon · Portafolio</title>
   <meta name="description" content="Portafolio offline con Acerca de, Certificados, Proyectos y Metas." />
@@ -9,14 +10,12 @@
     html{
   -webkit-text-size-adjust:100%;
   text-size-adjust:100%;
-}
+}    
+    :root{ color-scheme: dark; }
     :root{
       --bg:#0b1020; --panel:#0f1730; --muted:#8aa4ff; --text:#e8ecff; --accent:#6bffff; --accent-2:#38bdf8;
       --card:#0e142b; --border:#202a4a; --ok:#22c55e; --warn:#f59e0b;
       --radius:18px; --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f8fd; --panel:#ffffff; --card:#ffffff; --text:#0e1220; --border:#e7e9f2; --muted:#475569; --accent:#0369a1; --accent-2:#2563eb; }
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -557,5 +556,6 @@ const METAS = [
   </script>
 </body>
 </html>
+
 
 
