@@ -17,6 +17,12 @@
   --card:#0e142b; --border:#202a4a;
   --ok:#22c55e; --warn:#f59e0b;
   --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+  --dur: .2s;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  *{ transition-timing-function: var(--ease); }
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
 }
 
 *{ box-sizing:border-box }
@@ -74,6 +80,12 @@ h2{ font-size:22px }
   border-radius:var(--radius);
   box-shadow:var(--shadow);
   padding:18px;
+  transition: box-shadow var(--dur), border-color var(--dur), transform var(--dur)
+}
+.card:hover{
+  border-color: color-mix(in oklab, var(--accent-2) 30%, var(--border));
+  box-shadow: 0 10px 30px rgba(0,0,0,.45), 0 0 0 1px rgba(56,189,248,.10) inset;
+  transform: translateY(-2px);
 }
 .btn{
   display:inline-flex; align-items:center; gap:8px;
@@ -82,8 +94,12 @@ h2{ font-size:22px }
   border-radius:12px;
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
   color:var(--text);
+  transition: border-color var(--dur), box-shadow var(--dur), transform var(--dur);
 }
-.btn:hover{ border-color:var(--accent-2) }
+.btn:hover{ 
+  border-color: color-mix(in oklab, var(--accent-2) 60%, var(--border));
+  box-shadow: 0 6px 18px rgba(56,189,248,.18);}
+.btn:active{ transform: translateY(1px) scale(.995); }
 .pill{ padding:.2rem .6rem; border-radius:999px; border:1px solid var(--border); font-size:12px }
 .row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap }
 .avatar{
@@ -113,9 +129,10 @@ h2{ font-size:22px }
   display:inline-flex; align-items:center; gap:8px;
   padding:10px 16px; min-height:42px; border-radius:999px;
   background:var(--panel); border:1px solid var(--border); color:var(--text);
-  transition:background .18s, border-color .18s, color .18s, box-shadow .18s;
+  transition: transform var(--dur), background var(--dur), border-color var(--dur);
 }
 .chip:hover,.chip:focus-visible{
+  transition: transform var(--dur), background var(--dur), border-color var(--dur);
   background:color-mix(in oklab, var(--accent-2) 18%, transparent);
   border-color:color-mix(in oklab, var(--accent-2) 60%, var(--border));
   color:#fff; outline:none;
@@ -131,9 +148,10 @@ h2{ font-size:22px }
 .social-link{
   display:inline-flex; align-items:center; gap:6px;
   color:var(--accent-2); font-size:14px; text-decoration:none;
-  transition:color .18s ease, opacity .18s ease;
+  opacity:.9; transform: translateY(0);
+  transition: color var(--dur), opacity var(--dur), transform var(--dur);
 }
-.social-link:hover{ color:var(--accent) }
+.social-link:hover{ opacity:1; transform: translateY(-1px) scale(1.03); }
 .social-link svg{ width:18px; height:18px; display:block }
 .social-link svg, .social-link svg *{ fill:currentColor }
 
@@ -167,7 +185,7 @@ h2{ font-size:22px }
 .hamburger:hover{
   background:color-mix(in oklab, var(--accent-2) 18%, transparent);
   border-color:color-mix(in oklab, var(--accent-2) 60%, var(--border));
-  box-shadow:0 0 0 3px color-mix(in oklab, var(--accent-2) 28%, transparent);
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--accent-2) 28%, transparent),0 0 12px rgba(107,255,255,.18) inset;;
 }
 @media (max-width:820px){
   .hamburger{ display:inline-flex }
@@ -278,7 +296,8 @@ select.search option:checked, select.search option:hover{ background-color:var(-
   .hero-grid > *{ min-width:0 }
   .snapshot ul{ display:block; padding-left:18px; margin:8px 0 0 }
   .snapshot li{ margin-bottom:6px }
-  .card{ padding:16px }
+  .card{ padding:16px;
+  }
 }
 @media (max-width:480px){
   .hero-grid{ gap:12px }
@@ -312,9 +331,46 @@ select.search option:checked, select.search option:hover{ background-color:var(-
 ===================================================== */
 :target{ scroll-margin-top:62px }
 #acerca{ scroll-margin-top:125px } /* ajusta a gusto: 90–130px */
+.reveal{ opacity:0; transform: translateY(12px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.reveal.is-in{ opacity:1; transform:none; }
+a.underline-anim{
+  background: linear-gradient(currentColor, currentColor) bottom / 0 2px no-repeat;
+  transition: background-size var(--dur) var(--ease), color var(--dur);
+}
+a.underline-anim:hover{ background-size: 100% 2px; }
+.logos{
+  display:flex; gap:22px; flex-wrap:wrap; align-items:center;
+  filter:saturate(.1) contrast(1.1) opacity(.9);
+}
+.logos img{
+  height:28px; opacity:.8; transition: transform var(--dur), opacity var(--dur), filter var(--dur);
+}
+.logos img:hover{
+  transform: translateY(-2px);
+  opacity:1; filter:none;
+}
+footer .logos {
+  display: flex;
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente si cambian de tamaño */
+  flex-wrap: wrap;           /* por si se desbordan en pantallas chicas */
+  gap: 20px;                 /* espacio entre logos */
+  margin-top: 12px;          /* separación respecto al texto del footer */
+}
+
+footer .logos img {
+  max-height: 40px;          /* tamaño uniforme */
+  object-fit: contain;
+  opacity: 0.85;             /* un poquito sobrios */
+  transition: opacity .2s ease;
+}
+
+footer .logos img:hover {
+  opacity: 1;                /* al pasar el mouse, brillan más */
+}
+
 </style>
 
-  </style>
 </head>
 <body>
 <nav class="nav">
@@ -489,7 +545,16 @@ select.search option:checked, select.search option:hover{ background-color:var(-
   </section>
 
 
-  <footer class="footer container small">Última edición: 2025-08-25</footer>
+  <footer class="footer container small">
+    <div class="logos">
+    <img src="assets/logos/cisco.svg" alt="Cisco">
+    <img src="assets/logos/google.svg" alt="Google">
+    <img src="assets/logos/ctic-uni.svg" alt="CTIC UNI">
+    <img src="assets/logos/inictel.svg" alt="INICTEL">
+    <img src="assets/logos/uni.svg" alt="UNI">
+    <img src="assets/logos/icpna.svg" alt="ICPNA">
+  </div>
+  </footer>
 
   <div class="sticky-actions">
     <button class="btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Arriba</button>
@@ -845,11 +910,21 @@ const METAS = [
   menu.querySelectorAll('.mobile-menu__list a').forEach(a => a.addEventListener('click', closeMenu));
 })();
 
+(function(){
+  const obs = new IntersectionObserver((ents)=>{
+    ents.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('is-in'); obs.unobserve(e.target); }
+    });
+  }, {threshold: .08, rootMargin: "0px 0px -10% 0px"});
 
+  document.querySelectorAll('.card, .hero .cta, .grid > *').forEach(el=>{
+    el.classList.add('reveal');
+    obs.observe(el);
+  });
+})();
 
   </script>
 </body>
 </html>
-
 
 
