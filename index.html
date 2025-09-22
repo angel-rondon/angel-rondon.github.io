@@ -5,7 +5,7 @@
   <meta name="color-scheme" content="dark">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Ángel Rondon · Portafolio</title>
-  <meta name="description" content="Portafolio oficial con Acerca de, Certificados, Proyectos y Metas." />
+  <meta name="description" content="Portafolio offline con Acerca de, Certificados, Proyectos y Metas." />
 <style>
 /* ========================================================================
    0) TOKENS & RESET
@@ -784,9 +784,93 @@ html.allow-motion .footer .logos img{
    url:'certs/2025_08_06 - SistemasUNI - Excel Básico - Rondón Ortiz, Angel Rodrigo.pdf'},
 
   {fecha:'2025-08-15', institucion:'SistemasUNI', nombre:'Excel Intermedio', categoria:'Ofimática',
-   url:'certs/2025_08_15 - SistemasUNI - Excel Intermedio - Rondón Ortiz, Angel Rodrigo.pdf'}
+   url:'certs/2025_08_15 - SistemasUNI - Excel Intermedio - Rondón Ortiz, Angel Rodrigo.pdf'},
+   {fecha:'2025-09-07', institucion:'SistemasUNI', nombre:'Windows Server Avanzado', categoria:'Sistemas',
+ url:'certs/2025_09_07 - SistemasUNI - Windows Server Avanzado - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+{fecha:'2025-09-05', institucion:'SistemasUNI', nombre:'Excel Avanzado 2019', categoria:'Ofimática',
+ url:'certs/2025_09_05 - SistemasUNI - Excel Avanzado 2019 - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+{fecha:'2025-08-26', institucion:'CTIC UNI', nombre:'Cloud Computing (AWS, Azure, Google Cloud)', categoria:'Sistemas',
+ url:'certs/2025_08_26 - CTIC UNI - Cloud Computing (AWS, Azure, Google Cloud) - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+{fecha:'2025-08-19', institucion:'INICTEL UNI', nombre:'Programa de Especialización en Ciberseguridad: Fundamentos y Aplicación', categoria:'Ciberseguridad',
+ url:'certs/2025_08_19 - INICTEL UNI - Programa de Especialización en Ciberseguridad Fundamentos y Aplicación - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+{fecha:'2025-08-16', institucion:'AWS Partner Network', nombre:'Cloud Practitioner Essentials', categoria:'Sistemas',
+ url:'certs/2025_08_16 - AWS Partner Network - AWS Cloud Practitioner Essentials - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+{fecha:'2025-08-16', institucion:'Certero', nombre:'AWS Cloud Practitioner Essentials', categoria:'Sistemas',
+ url:'certs/2025_08_16 - Entrenamiento Cetero - AWS Cloud Practitioner Essentials - Rondon Ortiz, Angel Rodrigo.pdf'},
+
+
 ];
 
+  const CERT_LINKS = {
+  // 2023
+  '2023-02-24|SistemasUNI|Linux Administración Servicios Intranet':
+    'https://certificaciones.fiis.uni.edu.pe/usuario/certificado/8782956c-e46a-4a1f-b746-adfa91312926',
+
+  // 2024
+  '2024-11-23|SistemasUNI|Linux Seguridad en Redes y Firewall':
+    'https://certificaciones.fiis.uni.edu.pe/usuario/certificado/b9eaa609-8f68-47ea-8865-3b6bf58bda4a',
+
+  // 2025
+  '2025-02-03|CTIC UNI|Ciberseguridad Cybersoc CICS':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_71ddbb98ac630688984ba434ae65c6f6',
+  '2025-02-08|CTIC UNI|Ciberseguridad Ethical Hacking CEH':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_379c49be17a367c4b77bd3232914623e',
+  '2025-02-08|SistemasUNI|Especialista en Linux':
+    'https://certificaciones.fiis.uni.edu.pe/usuario/certificado/83ca02ca-fb9d-4686-a176-6978408323f5',
+  '2025-02-08|SistemasUNI|Linux Administración Básica':
+    'https://certificaciones.fiis.uni.edu.pe/usuario/certificado/39af84de-060a-4b5d-8fad-72f85a7c7c7f',
+  '2025-03-04|Cisco Networking Academy|Ethical Hacker':
+    'https://www.credly.com/badges/81a35aca-46e3-41ad-92ec-4ecff9cc14ee/public_url',
+  '2025-03-08|SistemasUNI|Windows Server Administración':
+    'https://certificaciones.fiis.uni.edu.pe/usuario/certificado/16c3f687-b7bc-47df-82d2-b4905c866f62',
+  '2025-03-10|CTIC UNI|Machine Learning con Python':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_6c09073007fbfddddc98d287b18b3135',
+  '2025-05-05|Cisco Networking Academy|Defensa de la Red':
+    'https://www.credly.com/badges/e7c20ef5-5507-44fc-9ea2-d594a02b9b12/public_url',
+  '2025-05-12|CTIC UNI|Gestión de Proyectos PMI 1':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_4d852c4afa9523e770c9938558205c8b',
+  '2025-05-22|CTIC UNI|BPM con Bizagi':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_4ed4229809573b9ad875cbe201b30685',
+  '2025-05-26|CTIC UNI|Gestión de Proyectos PMI 2':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_d7538e6053d5a18a5d3266207f8de8d2',
+  '2025-06-03|Cisco Networking Academy|Seguridad de puntos finales':
+    'https://www.credly.com/badges/5b4322b6-94fd-45d4-a109-06bdd8ca2b1d/public_url',
+  '2025-06-10|CTIC UNI|Fundamentos de ISO 27001':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_12c5ce34e2bdcd892353b055f31cfa50',
+  '2025-06-14|CTIC UNI|Fundamentos de ISO 31000':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_ef44de1d0fe20e865e3f35be5f2f0827',
+  '2025-06-17|CTIC UNI|Fundamentos de Gestión de Proyectos bajo el Enfoque Scrum':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_72194b19b34678b59d3e83ee6bb82766',
+  '2025-07-21|CISCO|Gestión de Amenazas Cibernéticas':
+    'https://www.credly.com/badges/b0b5ec46-e80c-4ff1-bbbf-fb3e86b08717/public_url',
+
+  // (extra futuro) está en tu registro pero aún no en tu array CERTIFICADOS:
+  '2025-08-26|CTIC UNI|Cloud Computing (AWS, Azure, Google Cloud)':
+    'https://certificados.uni.edu.pe/verificador/search.php?cert_id=cert_50fa4912f32f244699f6daff0b8f66b7'
+};
+function keyCert(c){ return `${c.fecha}|${c.institucion}|${c.nombre}`; }
+
+/**
+ * Devuelve el enlace a mostrar y su etiqueta.
+ * Prioridad:
+ * 1) c.verificacion (si lo agregas en el objeto CERTIFICADOS)
+ * 2) CERT_LINKS (mapa externo)
+ * 3) c.url (PDF local)
+ */
+function getCertLink(c){
+  const externo = c.verificacion || CERT_LINKS[keyCert(c)];
+  if(externo) return { href: externo, label: 'Ver Certificado' };
+
+  const pdf = c.url ? encodeURI(c.url) : null;
+  if(pdf) return { href: pdf, label: 'Ver PDF' };
+
+  return null;
+}
 
   const PROYECTOS = [
     {titulo:'Laboratorio SOC casero', fecha:'2025-06-30', etiquetas:['SIEM','Linux','Windows'], desc:'Montaje de entorno con logs de Ubuntu/Windows, correlación básica y casos de uso intro.'},
@@ -860,20 +944,20 @@ const METAS = [
     elEmpty.style.display = items.length? 'none':'block';
 
     items.forEach(c=>{
-      const card = document.createElement('article');
-      const url = c.url ? encodeURI(c.url) : null;
-      card.className = 'card';
-      card.innerHTML = `
-        <div class="row" style="justify-content:space-between">
-          <div>
-            <div class="kicker">${c.institucion} · ${c.categoria}</div>
-            <h3 style="margin:.2rem 0 0;font-size:18px">${c.nombre}</h3>
-            <div class="muted small">
-              ${fmtFecha(c.fecha)} · 
-              ${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer">Ver PDF</a>`
-                    : `<span class="muted">[Añadir PDF]</span>`}
-            </div>
-          </div>
+  const card = document.createElement('article');
+  const link = getCertLink(c); // << usa el helper nuevo
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="row" style="justify-content:space-between">
+      <div>
+        <div class="kicker">${c.institucion} · ${c.categoria}</div>
+        <h3 style="margin:.2rem 0 0;font-size:18px">${c.nombre}</h3>
+        <div class="muted small">
+          ${fmtFecha(c.fecha)} · 
+          ${link ? `<a href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}</a>`
+                 : `<span class="muted">[Añadir PDF]</span>`}
+        </div>
+      </div>
           <div class="row">
             ${c.notas?.length? `<button class='btn small' data-action='toggle'>Detalles</button>`:''}
             <div class="pill">${c.fecha}</div>
@@ -1115,7 +1199,5 @@ draw();
   
 </body>
 </html>
-
-
 
 
